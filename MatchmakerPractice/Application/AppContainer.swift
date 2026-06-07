@@ -9,4 +9,9 @@ import Foundation
 
 final class AppContainer {
 
+    let authService: AuthService
+
+    init() {
+        self.authService = FakeAuthService()
+    }
 }

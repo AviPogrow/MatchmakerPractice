@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+// allows the view model to depend on an abstraction
+protocol AuthService {
+    func login(
+        email: String,
+        password: String
+    ) async throws -> UserSession
+}

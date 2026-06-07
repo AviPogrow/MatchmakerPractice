@@ -9,17 +9,10 @@ import Foundation
 
 final class FakeAuthService: AuthService {
 
-    func login(
-        email: String,
-        password: String
-    ) async throws -> UserSession {
+    func login(email: String,password: String) async throws -> UserSession {
 
-        try await Task.sleep(
-            nanoseconds: 1_000_000_000
-        )
+        try await Task.sleep(nanoseconds: 1_000_000_000)
 
-        return UserSession(
-            userID: UUID().uuidString
-        )
+        return UserSession(userID: UUID().uuidString)
     }
 }

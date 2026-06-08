@@ -11,11 +11,14 @@ final class NasiGirlsListViewModel {
 
     var onGirlSelected: ((NasiGirl) -> Void)?
 
-    let girls: [NasiGirl] = [
-        NasiGirl(id: UUID(), name: "Sarah", age: 23),
-        NasiGirl(id: UUID(), name: "Rachel", age: 25),
-        NasiGirl(id: UUID(), name: "Leah", age: 27)
-    ]
+    let girls: [NasiGirl]
+
+    private let girlsRepository: GirlsRepository
+
+    init(girlsRepository: GirlsRepository) {
+        self.girlsRepository = girlsRepository
+        self.girls = girlsRepository.fetchGirls()
+    }
 
     func didSelectGirl(at index: Int) {
         let girl = girls[index]

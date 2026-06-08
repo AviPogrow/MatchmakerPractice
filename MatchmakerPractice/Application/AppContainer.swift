@@ -9,9 +9,20 @@ import Foundation
 
 final class AppContainer {
 
-    let authService: AuthService
+    let authContainer: AuthContainer
+    let girlsContainer: GirlsContainer
 
     init() {
-        self.authService = FakeAuthService()
+        let authService = FakeAuthService()
+
+        self.authContainer = AuthContainer(
+            authService: authService
+        )
+
+        let girlsRepository = FakeGirlsRepository()
+
+        self.girlsContainer = GirlsContainer(
+            girlsRepository: girlsRepository
+        )
     }
 }

@@ -10,14 +10,24 @@ import UIKit
 
 final class GirlsContainer {
 
+    private let girlsRepository: GirlsRepository
+
+    init(girlsRepository: GirlsRepository) {
+        self.girlsRepository = girlsRepository
+    }
+
     func makeListViewModel() -> NasiGirlsListViewModel {
-        NasiGirlsListViewModel()
+        NasiGirlsListViewModel(
+            girlsRepository: girlsRepository
+        )
     }
 
     func makeDetailViewModel(
         girl: NasiGirl
     ) -> NasiGirlDetailViewModel {
-        NasiGirlDetailViewModel(girl: girl)
+        NasiGirlDetailViewModel(
+            girl: girl
+        )
     }
 
     func makeListViewController() -> NasiGirlsListViewController {
@@ -31,7 +41,9 @@ final class GirlsContainer {
     func makeDetailViewController(
         girl: NasiGirl
     ) -> NasiGirlDetailViewController {
-        let viewModel = makeDetailViewModel(girl: girl)
+        let viewModel = makeDetailViewModel(
+            girl: girl
+        )
 
         return NasiGirlDetailViewController(
             viewModel: viewModel

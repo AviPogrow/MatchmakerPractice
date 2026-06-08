@@ -9,7 +9,7 @@ import UIKit
 
 final class LoginViewController: UIViewController {
 
-    private let viewModel: LoginViewModel
+    let viewModel: LoginViewModel
 
     private let loginButton = UIButton(type: .system)
 

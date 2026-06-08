@@ -20,10 +20,10 @@ final class AppCoordinator {
     }
     func start() {
         let navigationController = UINavigationController()
-
+        
         let authCoordinator = AuthCoordinator(
             navigationController: navigationController,
-            authService: container.authService
+            container: container.authContainer
         )
 
         self.authCoordinator = authCoordinator
@@ -48,7 +48,8 @@ final class AppCoordinator {
         print("AppCoordinator showMainTabs()")
 
         let mainTabCoordinator = MainTabCoordinator(
-            window: window
+            window: window,
+            container: container
         )
 
         self.mainTabCoordinator = mainTabCoordinator

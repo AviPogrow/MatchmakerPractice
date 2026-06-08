@@ -3,12 +3,17 @@ import UIKit
 final class MainTabCoordinator {
 
     private let window: UIWindow
-
+    
+    private let container: AppContainer
     private var nasiGirlsListCoordinator: NasiGirlsListCoordinator?
-    let girlsContainer = GirlsContainer()
+    
 
-    init(window: UIWindow) {
+    init(
+        window: UIWindow,
+        container: AppContainer
+    ) {
         self.window = window
+        self.container = container
     }
 
     func start() {
@@ -18,11 +23,11 @@ final class MainTabCoordinator {
 
         let girlsNavigationController = UINavigationController()
 
-        let girlsContainer = GirlsContainer()
+       
 
         let nasiGirlsListCoordinator = NasiGirlsListCoordinator(
             navigationController: girlsNavigationController,
-            container: girlsContainer
+            container: container.girlsContainer
         )
 
         self.nasiGirlsListCoordinator = nasiGirlsListCoordinator
